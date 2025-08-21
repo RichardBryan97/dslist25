@@ -2,6 +2,7 @@ package com.devSuperior.dsList.entity;
 
 import jakarta.persistence.*;
 
+import java.lang.reflect.Type;
 import java.util.Objects;
 
 @Entity
@@ -11,27 +12,29 @@ public class Game {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String text;
+    private String title;
 
     @Column(name = "game_year")
     private Integer year;
     private String genre;
-    private String plataform;
+    private String platforms;
     private Double score;
     private String imgUrl;
     private String shortDescription;
+
+    @Column(columnDefinition = "TEXT")
     private String longDescription;
 
     public Game(){
 
     }
 
-    public Game(Long id, String text, Integer year, String genre, String plataform, Double score, String imgUrl, String shortDescription, String longDescription) {
+    public Game(Long id, String title, Integer year, String genre, String platforms, Double score, String imgUrl, String shortDescription, String longDescription) {
         this.id = id;
-        this.text = text;
+        this.title = title;
         this.year = year;
         this.genre = genre;
-        this.plataform = plataform;
+        this.platforms = platforms;
         this.score = score;
         this.imgUrl = imgUrl;
         this.shortDescription = shortDescription;
@@ -46,12 +49,12 @@ public class Game {
         this.id = id;
     }
 
-    public String getText() {
-        return text;
+    public String getTitle() {
+        return title;
     }
 
-    public void setText(String text) {
-        this.text = text;
+    public void setTitle(String title) {
+        this.title = title;
     }
 
     public Integer getYear() {
@@ -70,12 +73,12 @@ public class Game {
         this.genre = genre;
     }
 
-    public String getPlataform() {
-        return plataform;
+    public String getPlatforms() {
+        return platforms;
     }
 
-    public void setPlataform(String plataform) {
-        this.plataform = plataform;
+    public void setPlatforms(String platforms) {
+        this.platforms = platforms;
     }
 
     public Double getScore() {
